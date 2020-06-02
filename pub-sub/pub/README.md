@@ -1,11 +1,11 @@
-# Hello Service
+# Clientdemo Service
 
-This is the Hello service
+This is the Clientdemo service
 
 Generated with
 
 ```
-micro new hello --namespace=com.foo --type=service
+micro new clientdemo --namespace=go.micro --type=service
 ```
 
 ## Getting Started
@@ -16,9 +16,9 @@ micro new hello --namespace=com.foo --type=service
 
 ## Configuration
 
-- FQDN: com.foo.service.hello
+- FQDN: go.micro.service.clientdemo
 - Type: service
-- Alias: hello
+- Alias: clientdemo
 
 ## Dependencies
 
@@ -46,7 +46,7 @@ make build
 
 Run the service
 ```
-./hello-service
+./clientdemo-service
 ```
 
 Build a docker image
