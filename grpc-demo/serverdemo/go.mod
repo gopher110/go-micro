@@ -10,6 +10,7 @@ require (
 	github.com/leodido/go-urn v1.2.0 // indirect
 	github.com/mholt/certmagic v0.9.3 // indirect
 	github.com/micro/go-micro/v2 v2.8.0
+	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.8.0 // indirect
 	github.com/micro/mdns v0.3.0 // indirect
 	google.golang.org/protobuf v1.24.0
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
