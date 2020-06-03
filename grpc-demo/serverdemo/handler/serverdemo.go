@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"github.com/micro/go-micro/v2/errors"
 
 	log "github.com/micro/go-micro/v2/logger"
 
@@ -13,7 +14,7 @@ type Serverdemo struct{}
 // Call is a single request handler called via client.Call or the generated client code
 func (e *Serverdemo) Call(ctx context.Context, req *serverdemo.Request, rsp *serverdemo.Response) error {
 	log.Info("Received Serverdemo.Call request")
-	rsp.Message="Hello " + req.Name
+	rsp.Message = "Hello " + req.Name
 
 	return nil
 }
@@ -47,11 +48,15 @@ func (e *Serverdemo) PingPong(ctx context.Context, stream serverdemo.Serverdemo_
 		}
 	}
 }
+
 // Call is a single request handler called via client.Call or the generated client code
 func (e *Serverdemo) HelloWorld(ctx context.Context, req *serverdemo.Request, rsp *serverdemo.Response) error {
-    log.Info("Received Serverdemo.Call request")
-    rsp.Message="Hi " + req.Name
-    rsp.Code=1
+	log.Info("Received Serverdemo.Call request")
+	if len(req.Name) == 0 {
+		return errors.BadRequest("cn.cmis110.service.serverdemo", "name is required")
+	}
+	rsp.Message = "Hi " + req.Name
+	rsp.Code = 1
 
-    return nil
+	return nil
 }
